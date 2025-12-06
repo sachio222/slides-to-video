@@ -2,9 +2,13 @@
 
 Create videos from slides with Hume TTS audio and optional background music.
 
-**New**: Refactored version with flexible slide count! See `MIGRATION.md` for details.
+**New**: REST API version available! See `API_USAGE.md` for details.
+
+**Also new**: Refactored version with flexible slide count! See `MIGRATION.md` for details.
 
 ## Quick Start
+
+### Option 1: Command Line (Bash Scripts)
 
 Use the refactored v2 script (backwards compatible):
 
@@ -19,15 +23,45 @@ Use the refactored v2 script (backwards compatible):
   --content "$JSON"
 ```
 
+### Option 2: REST API (Python)
+
+Start the API server:
+
+```bash
+python3 create_video_api.py
+```
+
+Make API requests (see `API_USAGE.md` for full documentation):
+
+```bash
+curl -X POST http://localhost:5000/api/v1/create-video \
+  -H "Content-Type: application/json" \
+  -d @request.json
+```
+
+Or use the example client:
+
+```bash
+python3 example_client.py
+```
+
 ## Setup
 
-### 1. Create Python Virtual Environment
+### 1. Install Python Dependencies
+
+For the bash scripts:
 
 ```bash
 cd /Users/jupiter/dev/woodshed/tts/slides_to_video
 python3 -m venv venv
 source venv/bin/activate
 pip install hume
+```
+
+For the REST API (additional dependency):
+
+```bash
+pip install flask hume
 ```
 
 ### 2. Set Environment Variables
@@ -91,7 +125,40 @@ Videos are created in:
 
 ## Files
 
-- `create_multi_slide_video_hume.sh` - Main script
+### Bash Scripts
+
+- `create_multi_slide_video_hume.sh` - Original script (5 slides fixed)
+- `create_multi_slide_video_hume_v2.sh` - Refactored script (flexible slide count)
 - `hume_tts.py` - Hume TTS helper
 - `calculate_contrast_color.py` - Waveform color calculator
+
+### REST API
+
+- `create_video_api.py` - REST API server (single file)
+- `API_USAGE.md` - Full API documentation
+- `example_client.py` - Example Python client
+- `test_api.sh` - Example bash/curl client
+
+### Utilities
+
+- `utils/` - Helper utilities (config, parsing, caching)
 - `venv/` - Python virtual environment (create with setup steps above)
+
+## Choosing Between Bash Scripts and REST API
+
+**Use Bash Scripts when:**
+
+- Running locally from command line
+- Integrating with shell scripts or cron jobs
+- You prefer command-line tools
+- Single-machine execution
+
+**Use REST API when:**
+
+- Building web services or microservices
+- Need remote access over HTTP
+- Integrating with n8n or other workflow tools
+- Want to call from any programming language
+- Need concurrent request handling
+
+Both implementations provide identical video output and functionality.

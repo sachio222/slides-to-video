@@ -1,0 +1,11 @@
+# Python dependencies for Slides to Video
+
+# Core TTS functionality (required for both scripts and API)
+hume>=0.6.0
+
+# REST API server (only needed for create_video_api.py)
+flask>=3.0.0
+
+# Example client (optional, only for example_client.py)
+requests>=2.31.0
+
