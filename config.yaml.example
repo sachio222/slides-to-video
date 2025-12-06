@@ -1,0 +1,50 @@
+# Optional configuration file for slides-to-video
+# Copy to config.yaml and customize as needed
+# All values shown are defaults; omit any you don't want to override
+
+paths:
+  script_dir: /Users/jupiter/dev/woodshed/tts/slides-to-video
+  output_base: /Users/jupiter/dev/woodshed/images/languageacademy/socials
+  homebrew_bin: /opt/homebrew/bin
+  local_bin: /usr/local/bin
+
+video:
+  default_width: 1080
+  default_height: 1920
+  format: mp4
+  video_bitrate: 4000k
+  audio_bitrate: 192k
+  preset: medium
+  crf: 23
+
+audio:
+  sample_rate: 48000
+  channels: mono
+  trailing_silence: 1.0
+  leading_silence: 0.15
+  pause_duration: 1.0
+
+tts:
+  provider: hume
+  french_voice: claire
+  english_voice: claire
+  version: "2"
+  retry_attempts: 3
+  retry_delay: 1.0
+
+music:
+  volume: 0.15  # Music volume (0.15 = 15%, lower = quieter)
+  fade_duration: 3.0  # Fade out duration in seconds
+  compressor_threshold: 0.02  # Lower = more aggressive ducking
+  compressor_ratio: 8  # Higher = stronger ducking when voice is present
+  compressor_attack: 20  # Faster attack = quicker ducking response (ms)
+  compressor_release: 200  # Faster release = quicker music recovery (ms)
+
+waveform:
+  height_percent: 30
+  mode: bar
+  ascale: log
+  alpha: 0.65
+  bass_rolloff: 80
+
+

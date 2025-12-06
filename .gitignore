@@ -1,0 +1,48 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.pyc
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+/tmp/
+
+# Test output
+test-*/
+*-test-*/
+
+# Generated videos/audio (usually stored elsewhere)
+# Uncomment if you don't want to track test outputs
+# *.mp4
+# *.wav
+# *.mp3
+
+# Config (if you have local overrides)
+config.yaml
+!config.yaml.example
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
