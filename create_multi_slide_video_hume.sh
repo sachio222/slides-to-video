@@ -151,7 +151,9 @@ HUME_ENGLISH_VOICE="${HUME_ENGLISH_VOICE:-claire}"  # English voice name - using
 # Use slugged word for directory name (filesystem-safe), but keep original WORD for filenames/content
 BASE_DIR="/Users/jupiter/dev/woodshed/images/languageacademy/socials/${DATE}-${WORD_SLUG}"
 VIDEO_BASE_DIR="${BASE_DIR}/video"
+AUDIO_BASE_DIR="${BASE_DIR}/audio"
 VIDEO_DIR="$VIDEO_BASE_DIR"
+AUDIO_DIR="$AUDIO_BASE_DIR"
 counter=1
 
 # Check if video directory exists and increment if needed
@@ -161,10 +163,10 @@ if [ -d "$VIDEO_BASE_DIR" ] 2>/dev/null; then
     ((counter++))
   done
   VIDEO_DIR="${VIDEO_BASE_DIR}-${counter}"
+  AUDIO_DIR="${AUDIO_BASE_DIR}-${counter}"
 fi
 
 SLIDES_DIR="${VIDEO_DIR}/slides"
-AUDIO_DIR="${BASE_DIR}/audio"
 mkdir -p "$VIDEO_DIR" "$SLIDES_DIR" "$AUDIO_DIR"
 
 TMP_DIR="/tmp/multi-slide-hume-$$"

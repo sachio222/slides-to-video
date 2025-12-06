@@ -2,6 +2,10 @@
 """
 Example: Call the API with your actual offrir data
 This replaces the SSH + bash script command
+
+NOTE: Make sure the API server is running first with your credentials:
+  cd /Users/jupiter/dev/docker/n8n-plus
+  docker-compose up -d video-api
 """
 
 import requests
