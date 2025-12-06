@@ -14,7 +14,7 @@ def create_video_example():
     """Example: Create a video with 3 slides"""
 
     # API endpoint
-    api_url = "http://localhost:5000/api/v1/create-video"
+    api_url = "http://localhost:3002/api/v1/create-video"
 
     # Request payload
     payload = {
@@ -84,7 +84,7 @@ def create_video_example():
 def health_check():
     """Check if the API server is healthy"""
 
-    api_url = "http://localhost:5000/api/v1/health"
+    api_url = "http://localhost:3002/api/v1/health"
 
     print("Checking API health...")
 
@@ -137,4 +137,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
